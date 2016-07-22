@@ -1,3 +1,3 @@
 # Chat
-The quickest and most open way to communicate with the Redox team is on our chat server. Currently, the only way to join it is by sending an email to [info@redox-os.org](mailto:info@redox-os.org), which might take a little while, since it's not automated. We're currently working on an easier way to do this, but this is the most convenient way right now.
 
+最快并且长期开放的与开发团队交流的方式是我们的聊天服务器。目前，唯一的加入方式是发送邮件给 [info@redox-os.org](mailto:info@redox-os.org)， 这可能需要一段时间，由于它并不是自动处理。我们正在研究一个更简单的方法来做到这一点，但这是目前最方便的方式。

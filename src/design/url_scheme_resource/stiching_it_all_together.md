@@ -1,9 +1,9 @@
 Stiching it All Together
 ========================
 
-The "URL, scheme, resource" model is simply a unified interface for efficient inter-process communication. URLs are simply resource descriptors. Schemes are simply resource "entries", which can be opened. You can think of a scheme as a closed book. It cannot itself be read or written, but you can open it to an open book: a resource. Resources are simply primitives for communications. They can behave either socket-like (as a stream of bytes, e.g. TCP and Orbital) or file-like (as an on-demand byte buffer, e.g. file systems and stdin).
+在 "URL, scheme, resource" 模式是简单高效的进程间通信的统一接口。URLs 是简单的资源描述符。Schemes 只是资源 "entries", 它可以打开。你能想到的方案作为一个封闭的书。其缺点是不能读取或写入，但你可以打开它本打开的书, Resources 仅仅是原语进行通信。他们可以表现 socket-like (以字节流，例如TCP 和 Orbital) 或 file-like (如按需字节的缓冲区，例如文件系统和标准输入).
 
-A quick, ugly diagram would look like this:
+快速，简图是这样的：
 
 ```
              /

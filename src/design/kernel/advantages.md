@@ -1,33 +1,33 @@
-Advantages of microkernels
+微内核的优点
 ==========================
 
-There are quite a lot advantages (and disadvantages!) to microkernels, a few of which will be covered here.
+有一些微内核优点（以及缺点），这里将介绍其中的几个。
 
-Modularity and customizability
+模块化和可定制性
 ------------------------------
 
-Monolithic kernels are, well, monolithic. They do not allow as fine-grained control as microkernels. This is due to many essential components being "hard-coded" into the kernel, and thus requiring modifications to the kernel itself (e.g., device drivers).
+集成式核心不允许细粒度控制微核。这是由于许多基本组件被 “硬编码” 到内核, 因此需要修改内核本身 (比如, 驱动程序).
 
-Microkernels are very modular by nature. You can replace, reload, modify, change, and remove modules, on runtime, without even touching the kernel.
+微内核原生模块化。你可以在运行时替换、重载、修改、变更、和删除模块，甚至不需要接触内核。
 
-Modern monolithic kernels try to solve this issue using kernel modules but still often require the system to reboot.
+现代集成式核心使用内核模块来试图解决这个问题，但仍然经常需要系统重新启动。
 
-Security
+安全
 --------
 
-Microkernels are undoubtedly more secure than monolithic kernels. The minimality principle of microkernels is a direct consequence of the principle of least privilege, according to which all components should have only the privileges absolutely needed to provide the needed functionality.
+微内核无疑比集成式核心安全。 最小化原理是最小特权原则的直接结果，只有需要绝对特权的功能，才能呢个在具有特权的模式下执行，其余则在用户空间运行。
 
-Many security-critical bugs in monolithic kernels stem from services and drivers running unrestricted in kernel mode, without any form of protection.
+集成式核心中的许多重要的安全漏洞源于服务和驱动在内核模式下不受限制的运行，没有任何形式的保护。
 
-In other words: **drivers can do whatever, without restrictions, when running in ring 0**.
+另一种说法： **在 Ring 0 域中，驱动能做什么就做什么，没有限制**。
 
-Less crashes
+更少的崩溃
 ------------
 
-When compared to microkernels, Monolithic kernels tend to be crash-prone. A crashed driver in a Monolithic kernel can crash the whole system whereas with a microkernel there is a separation of concerns which allows the system to handle any crashes safely.
+与微内核对照，集成式核心往往是怨声载道。在集成式核心中一个崩溃的驱动能使整个系统崩溃，而微内核有一个分离系统来安全地处理任何崩溃。
 
-In Linux we often see errors with drivers dereferencing bad pointers which ultimately results in kernel panics.
+在 Linux 我们经常看到带有驱动程序解引用错误指针的错误，最终导致内核崩溃。
 
-[There is very good documentation in MINIX about how this can be addressed by a microkernel.]
+[这有一个在 MINIX 中很好的文档关于如何通过微内核解决这个问题。]
 
-[There is very good documentation in MINIX about how this can be addressed by a microkernel.]: http://wiki.minix3.org/doku.php?id=www:documentation:reliability
+[这有一个在 MINIX 中很好的文档关于如何通过微内核解决这个问题。]: http://wiki.minix3.org/doku.php?id=www:documentation:reliability

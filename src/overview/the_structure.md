@@ -1,16 +1,13 @@
-The structure
-=============
+全书分为8个部分：
 
-The book is broken into 8 parts:
+- 概述： Redox 的quick'n'dirty概述。
+- 简介：什么是 Redox 以及如何比较其他系统的说明。
+- 入门：编译和运行 Redox 。
+- 设计：一本深入地介绍了 Redox 的设计和实施。
+- 开发：写作 Redox 应用程序。
+- 特约：你怎么可以促进 Redox 。
+- 了解代码库：用于与代码库熟悉自己。
+- 乐趣：最高机密的篇章。
+- 未来： Redox 的目标是。
 
-- Overview: A quick'n'dirty overview of Redox.
-- Introduction: Explanation of what Redox is and how it compares to other systems.
-- Getting started: Compiling and running Redox.
-- The design: An in-depth introduction to the design and implementation of Redox.
-- Development in user space: Writing applications for Redox.
-- Contributing: How you can contribute to Redox.
-- Understanding the codebase: For familiarizing yourself with the codebase.
-- Fun: Top secret chapter.
-- The future: What Redox aims to be.
-
-It is written such that you do not need any prior knowledge in Rust and/or OS development.
+你不需要 Rust 和 OS开发的任何知识。

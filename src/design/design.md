@@ -1,4 +1,4 @@
-The design of Redox
+Redox 的设计
 ===================
 
-This chapter will go over the design of Redox: the kernel, the user space, the ecosystem, the trade-offs and much more.
+本章节将说明 Redox 的设计：内核，用户空间，生态系统，权衡和其他的一些东西。

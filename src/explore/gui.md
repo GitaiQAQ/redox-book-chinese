@@ -1,41 +1,41 @@
 # GUI
 
-The desktop environment in Redox, referred to as Orbital, is provided by a set of programs that run in userspace:
+Redox 的桌面环境， 被称为 Orbital, 是由一组在用户空间运行的程序提供：
 
 ## Programs
-The following are command-line utilities that provide GUI services
+以下是提供 GUI 服务命令行实用程序
 
 ### orbital
-The orbital display and window manager sets up the orbital: scheme, manages the display, and handles requests for window creation, redraws, and event polling
+Orbital 显示器和窗口管理器设置： 方案，管理的显示，并且对窗口创建处理请求，重绘和事件轮询
 
 ### launcher
-The launcher multi-purpose program that scans the applications in the `/apps/` directory and provides the following services:
+它可以扫描在 `/apps/` 目录下的应用，并提供以下服务的启动多用途程序：
 
 #### Called Without Arguments
-A taskbar that displays icons for each application
+显示的图标为每个应用程序任务栏
 
 #### Called With Arguments
-An application chooser that opens a file in a matching program
-- If one application is found that matches, it will be opened automatically
-- If more than one application is found, a chooser will be shown
+在匹配程序打开文件的应用程序选择器
+- 如果一个应用程序发现匹配时，它将被自动打开
+- 如果找到一个以上的应用程序，选择器将显示
 
 ## Applications
-The following are GUI utilities that can be found in the `/apps/` directory.
+以下是可以在 `/apps/` 目录下找到 GUI 工具。
 
 ## Calculator
-A calculator that provides similar functionality to the `calc` program
+它提供的功能类似于 `calc` 程序的计算器
 
 ## Editor
-A simple editor that is similar to notepad
+一个简单的编辑器类似记事本
 
 ## File Browser
-A file browser that displays icons, names, sizes, and details for files. It uses the `launcher` command to open files when they are clicked
+显示图标，名称，大小和细节的文件的文件浏览器。在单击时，它使用`launcher`命令来打开文件
 
 ## Image Viewer
-A simple image viewer
+一个简单的图像浏览器
 
 ## Pixelcannon
-A 3d renderer that can be used for benchmarking the Orbital desktop.
+三维渲染器，可用于基准的 Orbital 桌面。
 
 ## Sodium
 A vi-like editor that provides syntax highlighting

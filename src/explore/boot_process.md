@@ -1,12 +1,12 @@
-# Boot Process
+# 引导过程
 
-## Bootloader
-The first code to be executed is the boot sector in `kernel/asm/bootsector.asm`. This loads the bootloader from the first partition. In Redox, the bootloader finds the kernel and loads it in full at address 0x100000. It also initializes the memory map and the VESA display mode, as these rely on BIOS functions that cannot be accessed easily once control is switched to the kernel.
+## 引导程序
+要执行的第一个代码是 `kernel/asm/bootsector.asm` 引导扇区。这将加载从第一个分区的引导程序。在 Redox, 引导程序认定在地址 0x100000 处为内核并完全加载它。它还初始化内存映射和 VESA 显示模式，因为这些靠可一旦控制被切换到内，就核不能容易地访问 BIOS 函数。
 
-## Kernel
-The kernel is entered through the interrupt table, with interrupt 0xFF. This interrupt is only available in the bootloader. By utilizing this method, all kernel entry can be contained to a single function, the `kernel` function, found in `kernel/main.rs`, that serves as the entry point in the `kernel.bin` executable file.
+## 内核
+内核通过中断表中输入，伴随 0xFF 中断。该中断仅在引导程序可用。通过利用这种方法，所有的内核条目可以包含到单个功能， `kernel` 功能，在 `kernel/main.rs` 发现, 作为在 `kernel.bin` 文件的入口点.
 
-At this stage, the kernel copies the memory map out of low memory, sets up an initial page mapping, allocates the environment object, defined in `kernel/env/mod.rs`, and begins initializing the drivers and schemes that are embedded in the kernel. This process will print out kernel information such as the following:
+在此阶段，内核副本存储器映射出低存储器的，设置了一个初始页映射，分配环境目的，在 `kernel/env/mod.rs`, 限定，并且开始初始化嵌入在驱动程序和方案内核。该方法将打印出的内核的信息，如以下内容：
 
 ```
 Redox 32 bits
@@ -30,15 +30,16 @@ Redox 32 bits
      + Slave: Status: 0
 ```
 
-After initializing the in-kernel structures, drivers, and schemes, the first userspace process spawned by the kernel is the `init` process, more specifically the `initfs:/bin/init` process.
+初始化内核中的结构，驱动程序和方案后，由内核催生了第一个用户空间进程是`init` 进程， 更具体的 `initfs:/bin/init` 进程.
 
 ## Init
-Redox has a multi-staged init process, designed to allow for the loading of disk drivers in a modular and configurable fashion. This is commonly referred to as an init ramdisk.
+Redox 具有多级 init 进程，设计为允许磁盘驱动器的模块化和可配置的方式装载。这通常称为初始化虚拟盘。
 
 ### Ramdisk Init
-The ramdisk init has the job of loading the drivers required to access the root filesystem and then transfer control to the userspace init. This is a filesystem that is linked with the kernel and loaded by the bootloader as part of the kernel image. You can see the code associated with the `init` process in `crates/init/main.rs`.
+Ramdisk 的 init 访问根文件系统，然后转移控制权到用户空间，加载驱动。
+这是与内核作为内核部分图像链接和加载的引导程序文件系统。你可以看到在 `init` 进程 `crates/init/main.rs`看到相关代码。
 
-The ramdisk init loads, by default, the file `/etc/init.rc`, which may be found in `initfs/etc/init.rc`. This file currently has the contents:
+Ramdisk 的初始化加载，默认情况下，文件 `/etc/init.rc`，`initfs/etc/init.rc`。该文件目前拥有的内容：
 
 ```
 echo ############################
@@ -54,10 +55,10 @@ cd file:/
 init
 ```
 
-As such, it is very easy to modify Redox to load a different filesystem as the root, or to move processes and drivers in and out of the ramdisk.
+因此，它是很容易修改 Redox 加载不同的文件系统作为根，或者在进出虚拟盘的移动过程和驱动程序。
 
-### Filesystem Init
-As seen above, the ramdisk init has the job of loading and starting the filesystem init. By default, this will mean that a new init process will be spawned that loads a new configuration file, now in the root filesystem at `filesystem/etc/init.rc`. This file currently has the contents:
+### 文件系统初始化
+如上述所示，虚拟盘初始化具有装载和启动文件系统初始化的工作。默认情况下，这将意味着一个新的init进程将催生加载一个新的配置文件，现在在 `filesystem/etc/init.rc`根文件系统。该文件目前拥有的内容：
 
 ```
 echo ############################
@@ -70,12 +71,12 @@ echo
 login
 ```
 
-Modifying this file allows for booting directly to the GUI. For example, we could replace `login` with `orbital`.
+修改此文件允许直接引导到 GUI。例如，我们可以用 `login` 代替 `orbital`.
 
-## Login
-After the init processes have set up drivers and daemons, it is possible for the user to log in to the system. A simple login program is currently used, it's source may be found in `crates/login/main.rs`
+## 登录
+初始化过程已经设置了驱动和守护程序后，就可以对用户登录到系统。一个简单的登录程序正在使用的，它的来源可以在 `crates/login/main.rs`
 
-The login program accepts a username, currently any username may be used, prints the `/etc/motd` file, and then executes `sh`. The motd file can be configured to print any message, it is at `filesystem/etc/motd` and currently has the contents:
+登录程序接受一个用户名，目前可以使用任何用户名，打印 `/etc/motd` 文件，然后执行 `sh`. 。该文件可以配置打印任何消息，它在文件系统 `filesystem/etc/motd` 目前拥有的内容：
 
 ```
 ############################

@@ -1,16 +1,16 @@
-An example.
+例子
 ===========
 
-Enough theory! Time for an example.
+理论已经足够了！时间的一个例子。
 
-We will implement a scheme which holds a vector, and push elements when you write, and pop them when you read. Let's call it `vec:`.
+我们将实现持有的矢量的方案，当你编写时增加元素，并当你阅读时弹出他们。让我们把它叫做 `vec:`.
 
 Let's get going:
 
-The code
+代码
 --------
 
-So first of all we need to import the things, we need:
+因此，首先我们需要导入的事情，我们需要：
 
 ```rust
 use system::scheme::Scheme;
@@ -18,7 +18,7 @@ use system::error::{Error, Result, ENOENT, EBADF, EINVAL};
 use std::cmp::min;
 ```
 
-We start by defining our scheme struct, which will implement the `Scheme` trait and hold the state of the scheme.
+我们从定义我们的方案结构，这将实行`Scheme`特质并保持计划的状态下启动。
 
 ```rust
 struct VecScheme {
@@ -34,9 +34,9 @@ impl VecScheme {
 }
 ```
 
-First of all we implement, `open()`. Let it accept a reference, which will be the initial content of the vector.
+首先我们实现的`open()`。让它接受的引用，这将是向量的初始含量。
 
-Note that we do ignore `flags` and `mode`.
+请注意，我们忽略了`flags`和`mode`。
 
 ```rust
 impl Scheme for VecScheme {
@@ -46,7 +46,7 @@ impl Scheme for VecScheme {
     }
 ```
 
-So, now we implement read
+所以，现在我们执行读取
 
 ```rust
     fn read(&mut self, _: usize, buf: &mut [u8]) -> Result<usize> {
@@ -64,7 +64,7 @@ So, now we implement read
     }
 ```
 
-Now, we will add `write`, which will simply push to the vector:
+现在，我们将添加`write`，这只会增加到向量：
 
 ```rust
     fn write(&mut self, _: usize, buf: &[u8]) -> Result<usize> {
@@ -77,9 +77,9 @@ Now, we will add `write`, which will simply push to the vector:
 }
 ```
 
-Note that leaving out the missing methods results in errors, when calling them.
+需要注意的是当调用它们时，离开了缺少的方法导致的错误。
 
-Last, we need the `main` function:
+最后，我们需要`main`功能：
 
 ```rust
 fn main() {

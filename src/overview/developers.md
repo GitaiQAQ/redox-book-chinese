@@ -1,35 +1,35 @@
-Developers
+开发者
 ==========
 
-We are quite a few developers at Redox. 40+ people work on it. There are all sorts of cool people to work with.
+Redox 有相当多的开发者。 40+的人进行这项工作。有各种人一起工作。
 
-Our [BDFL] is [Jackpot51], who maintains:
-- [The kernel, drivers, standard library, and Orbital]
-- [The installer]
+我们的 [BDFL] 为 [Jackpot51], 维护：
+- [内核，驱动程序，标准库和 Orbital]
+- [安装程序]
 - [RedoxFS]
 - [Newlib and C ports]
 - [Orbclient]
 - [OrbTK] (with assistance from [stratact])
 - [Orbutils]
-- The overall direction of the project.
+- 该项目的总体方向
 
-[Ticki] maintains:
+[Ticki] 维护:
 
-- [libmalloc]: The advanced user space memory allocator.
-- [Coreutils]: The core utilities of Redox.
-- [Magnet]: The package manager.
-- [Sodium]: The text editor of Redox.
+- [libmalloc]: 高级用户空间内存分配器
+- [Coreutils]: 核心工具
+- [Magnet]: 包管理器
+- [Sodium]: 文本编辑器
 - [The implementation of ZFS]: ZFS for Redox (originally written by [Tedsta])
 - [libextra]: Stuff libstd lacks.
-- [Binutils]: Utilities for manipulating binary files.
-- [Extrautils]: Extra utilities for Redox.
+- [Binutils]: 用于处理二进制文件实用工具
+- [Extrautils]: 额外的工具
 - [games-for-redox]: Funsies.
 
-[Ion] (shell) is maintained by [Skyler Berg].
+[Ion] (shell) 由 [Skyler Berg] 维护.
 
-The "core team" (people who are members of the GitHub organization) is currently:
+"核心团队" (GitHub的组织的成员) 目前是：
 
-(alphabetically sorted)
+(按字母顺序排列)
 
 - alicemaz
 - eghiorzi
@@ -47,7 +47,7 @@ The "core team" (people who are members of the GitHub organization) is currently
 - tedsta
 - ticki
 
-But [don't]. [forget]. [all]. [the]. [other]. [awesome]. [contributors].
+但是 [don't]. [forget]. [all]. [the]. [other]. [awesome]. [contributors].
 
 [BDFL]: https://en.wikipedia.org/wiki/Benevolent_dictator_for_life
 [Jackpot51]: https://github.com/jackpot51

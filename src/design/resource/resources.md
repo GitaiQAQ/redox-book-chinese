@@ -1,28 +1,28 @@
 Resources
 =========
 
-Resources are opened schemes. You can think of them like an established connection between the scheme provider and the client.
+资源被 schemes 打开。你可以理解它们像 schemes 供应商和客户之间建立的连接。
 
-Resources are closely connected to schemes and are sometimes intertwined with schemes. The difference between schemes and resources is subtle but important.
+资源与 schemes 紧密连接，有时和 schemes 纠缠在一起。在 schemes 与资源之间的不同是细微而重要的。
 
-Resource operations
+资源操作
 -------------------
 
-A resource can be defined as a data type with following methods defined on it:
+资源可以被定义为与在其上定义的下列方法的数据类型：
 
-1. `read` - read N bytes to a buffer provided as argument. Defaults to `EBADF`
-2. `write` - write a buffer to the resource. Defaults to `EBADF`.
-3. `seek` - seek the resource. That is, move the "cursor" without writing. Many resources do not support this operation. Defaults to `EBADF`.
-4. `close` - close the resource, potentially releasing a lock. Defaults to `EBADF`.
+1. `read` - 读N个字节为参数提供一个缓冲。默认为 `EBADF`
+2. `write` - 写缓冲器到资源。默认为 `EBADF`.
+3. `seek` - 查询资源。移动 “游标” 而无需编写。许多资源不支持此操作。默认为 `EBADF`.
+4. `close` - 关闭资源，潜在地解除锁定。默认为 `EBADF`.
 
 > TODO add F-operations.
 
-The resource type
+资源类型
 -----------------
 
-There are two types of resources:
+有两种类型的资源：
 
-1. File-like resources. These behave a lot like files. They act in a blocking manner; reads and writes are "buffer-like".
-2. Socket-like resources. These behave like sockets. They act in a non-blocking manner; reads and writes are more "stream-like".
+1. File-like 资源。这些表现很像文件。他们的行为以阻塞的方式; 读取和写入 "buffer-like"。
+2. Socket-like 资源。 这些行为类似于套接字。他们的行为在非阻塞的方式;读取和写入更多的 "stream-like".
 
 > TODO Expand on this.

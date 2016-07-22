@@ -1,11 +1,11 @@
-The Root Scheme
+根 Scheme
 ===============
 
-The root scheme is the kernel scheme which is used for registering and retrieving information about schemes. The root scheme's name is simply an empty string ("").
+根 scheme 是内核scheme, 其用于登记与检索关于 scheme 信息根的方案名称,只是一个空字符串（""）。
 
-Registering a Scheme
+注册 Scheme
 ====================
 
-Registering a scheme is done by opening the name of the scheme with the `CREATE` flag, in the root scheme.
+注册 Scheme 通过在根 Scheme 完成打开 Scheme 的名称伴随 `CREATE` 标志。
 
 > TODO

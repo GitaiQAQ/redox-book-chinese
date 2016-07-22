@@ -1,18 +1,18 @@
-"Everything is an URL"
+“一切都是一个URL”
 ======================
 
-"Everything is an URL" is an important principle in the design of Redox. Roughly speaking it means that the API, design, and ecosystem is centered around URLs, schemes, and resources as the main communication primitive. Applications communicate with each other, the system, daemons, etc, using URLs. As such, programs do not have to create their own constructs for communication.
+“一切都是一个URL”是  Redox 设计的一个重要原则。粗略地讲它意味着该API，设计，和生态系统是围绕网址，scheme 和作为主要通信原码的资源。应用程序相互搭配，系统，后台程序等，使用URL沟通。因此，程序没有创建自己的结构进行通信。
 
-By unifying the API in this way, you are able to have a consistent, clean, and flexible interface.
+通过统一这样的API，你能够有一个一致的，明确的，灵活的接口。
 
-We can't really claim credits of this concept (beyond our exact design and implementation). The idea is not a new one and is very similar to _9P_ from _Plan 9_ by Bell Lab; a similar approach has been taken in Unix and its successors.
+我们真的不能要求这个概念的学分（超出了我们的精确设计和实现）。这个想法是不是一个新的，非常相似，从 _Plan9_ 由贝尔实验室为 _9P_ ;类似的做法已经采取Unix和它的后继者。
 
-How it differs from "Everything is a file"
+它是如何不同于“一切都是文件”
 ------------------------------------------
 
-With "Everything is a file" all sorts of devices, processes, and kernel parameters can be accessed as files in a regular filesystem. This leads to absurd situations like the hard disk containing the root filesystem `/` contains a folder named `dev` with device files including `sda` which contains the root filesystem. Situations like this are missing any logic. Furthermore many file properties don't make sense on these 'special files': What is the size of `/dev/null` or a configuration option in sysfs?
+随着“一切都是文件”的各种设备，工艺和内核参数可以作为普通的文件系统的文件访问。这导致像包含根文件系统的硬盘荒谬的情况下`/`包含一个名为`dev`与设备文件包括其中包含根文件系统`sda`文件夹。像这样的情况下，缺少任何逻辑。此外许多文件属性不以这些 “特殊文件” 的感觉：`/dev/null`或 sysfs 中的一个配置选项的大小？
 
-In contrast to "Everything is a file", Redox does not enforce a common tree node for all kinds of resources. Instead resources are distinguished by protocol. This way USB devices don't end up in a "filesystem", but a protocol-based scheme like `EHCI`. Real files are accessible through a scheme called `file`, which is widely used and specified in [RFC 1630] and [RFC 1738].
+相反，“一切都是文件”， Redox 不会强制对各种资源的公共树节点。代替资源由协议区分。这样的USB设备不要在“文件系统”结束了，但像 `EHCI`基于协议的scheme真正的文件是通过一个名为 `file` 方案，它使用广泛，在指定的[RFC1630]和[RFC1738]访问。
 
 [RFC 1630]: https://tools.ietf.org/html/rfc1630
 [RFC 1738]: https://tools.ietf.org/html/rfc1738

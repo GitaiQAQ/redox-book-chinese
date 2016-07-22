@@ -1,27 +1,27 @@
 URLs, Schemes, and Resources
 ============================
 
-This is one of the most important design choices Redox makes. These three essential concepts are very entangled.
+这是最重要的 Redox 选择设计选择之一。这三个基本概念都非常纠结。
 
-What does "Everything is a URL" mean?
+“一切都在一个URL”是什么意思？
 --------------------------------------
 
-"Everything is a URL" is a generalization of "Everything is a file", allowing broader use of this unified interface for schemes.
+“一切都是一个URL” 是 “一切是一个文件”的推广，允许更广泛地使用这种统一的界面方。
 
-These can be used for effectively modulating the system in a "non-patchworky" manner.
+这些可用于在 “non-patchworky" 方式有效调节系统。
 
-The term is rather misleading, since a URL is just the identifier of a scheme and a resource descriptor. So in that sense "Everything is a scheme, identified by an URL" is more accurate, but not very catchy.
+这个词是相当具误导性，因为 URLs 是方案和资源描述的仅仅是标识。因此，在这个意义上说“一切都是 Schemes，以 URLs 标识”更准确，但也不是很吸引人的。
 
-So, how does it differ from files?
+那么，它是如何从文件中有什么不同？
 ----------------------------------
 
-You can think of URLs and segregated virtual file systems, which can be arbitrarily structured (they do not have to be tree-like) and arbitrarily defined by a program. Furthermore, "files" don't have to behave file-like! More on this later.
+你能想到的 URLs 和隔离虚拟文件系统，它可以任意地结构化的（它们不必须是树状）和由程序任意定义。此外， "files" 不必表现 file-like! 更多关于这一点。
 
-It opens up a lot of possibilities.
+它开辟了很多可能性。
 > [... TODO]
 
-The idea of virtual file systems is not a new one. If you are on a Linux computer, you should try to `cd` to `/proc`, and see what's going on there.
+虚拟文件系统的想法是不是一个新的。如果你是一个Linux的计算机上，你应该尝试`cd`为`/ proc`，看看在那里发生了什么事情。
 
-Redox extends this concept to a much more powerful one.
+Redox 扩展了这一理念，更强大。
 
 > TODO

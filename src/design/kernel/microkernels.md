@@ -1,33 +1,33 @@
-Microkernels
+微内核
 ============
 
-Redox's kernel is a microkernel. Microkernels stands out in their design by providing minimal abstractions in kernel-space. Microkernels have an emphasis on user space, unlike Monolithic kernels which have an emphasis on kernel space.
+Redox 的内核是微内核。 微内核在他们的设计中脱颖而出是由于在内核空间提供最小的抽象。 微内核侧重用户空间，不同与集成式内核侧重内核空间。
 
-The basic philosophy of microkernels is that any component which *can* run in user space *should* run in user space. Kernel-space should only be utilized for the most essential components (e.g., system calls, process separation, resource management, IPC, thread management, etc).
+微内核的基本理念是任何组件，它*可以* 并且*应该*在用户空间运行。内核空间应该只被用于最本质的组件（例如，系统调用，过程分离，资源管理，IPC，线程管理，等等）。
 
-The kernel's main task is to act as a medium for communication and segregation of processes. The kernel should provide minimal abstraction over the hardware (that is, drivers which can and should run in user mode).
+内核的主要任务是充当沟通和流程分离的媒介。内核应提供最少抽象在硬件（即，它可以并且应该在用户模式下运行的驱动程序）。
 
-Microkernels are more secure and less prone to crashes than monolithic kernels. This is due to drivers and other abstraction being less privileged, and thus cannot do damage to the system. Furthermore, microkernels are extremely maintainable, due to their small code size, this can potentially reduce the number of bugs in the kernel.
+微内核比集成式内核更安全，不容易崩溃。这是由于驱动程序和其他抽象是特权较少，所以不能做到对系统造成损害。此外，微内核是非常容易维护，由于其代码量小，这可能会减少在内核bug数量。
 
-As anything else, microkernels do also have disadvantages. We will discuss these later.
+至于别的，微内核做也有缺点。我们将在后面讨论这些。
 
-Versus monolithic kernels
+相对于集成式内核
 -------------------------
 
-Monolithic kernels provide a lot more abstractions than microkernels.
+集成式内核提供比微内核更大量的抽象。
 
-![An illustration]
+![例证]
 
-The above illustration ([from Wikimedia], by Wooptoo, License: Public domain) shows how they differ.
+上图([from Wikimedia], by Wooptoo, License: Public domain) 显示了它们的区别。
 
 > TODO
 
-A note on the current state
+当前的状态的说明
 ---------------------------
 
-Redox has ~16,000 lines of kernel code. For comparison the Minix has ~6,000 lines of kernel code.
+Redox 有 ~16,000 行内核代码。为了对比 Minix 的 ~6,000 行。
 
-We would like to move parts of Redox to user space to get an even smaller kernel.
+我们想 Redox 部分移动到用户空间以获得一个更小的内核。
 
-[An illustration]: https://upload.wikimedia.org/wikipedia/commons/6/67/OS-structure.svg
-[from Wikipedia]: https://commons.wikimedia.org/wiki/File:OS-structure.svg
+[例证]: https://upload.wikimedia.org/wikipedia/commons/6/67/OS-structure.svg
+[from Wikimedia]: https://commons.wikimedia.org/wiki/File:OS-structure.svg

@@ -1,37 +1,37 @@
 URLs
 ====
 
-The URL _itself_ is a relatively uninteresting (yet very important) notion for the design of Redox. The interesting part is what it represents.
+URL _itself_ 是 Redox 的设计中比较没意思的（但很重要）的概念。有趣的部分是它代表什么。
 
 The URL
 -------
 
-In short, a URL is an identifier of a resource. They contain two parts:
+总之，一个URL是一个资源的标识符。它们包含两个部分：
 
-1. The scheme part. This represents the "receiver", i.e. what scheme will handle the (F)OPEN call. This can be any arbitrary UTF-8 string, and will often simply be the name of your protocol.
+1. scheme 的一部分。这代表了“接收器”，即有什么计划将处理（F）OPEN 调用。这可以是任意 UTF-8 字符串，并且通常仅仅是你的协议的名称。
 
-2. The reference part. This represents the "payload" of the URL, namely what the URL refers to. Consider `file`, as an example. A URL starting with `file:` simply has a reference which is a path to a file. The reference can be any arbitrary byte string. The parsing, interpretation, and storage of the reference is left to the scheme. For this reason, it is not required to be a tree-like structure.
+2. 参考部分。这代表了URL，即什么URL是指“有效载荷”。考虑`file`，作为一个例子。以 `file:` 的 URL 只是有一个参考这是一个文件的路径。基准可以是任意字节串。解析，解释和参考的存储留给scheme因为这个原因，它是不要求是一个树形结构。
 
-So, the string representation of an URL looks like:
+因此，一个URL的字符串表示的样子：
 
 ```
 [scheme]:[reference]
 ```
 
-For example:
+例如：
 
 ```
 file:/path/to/myfile
 ```
 
-Note that `//` is not required, for convenience.
+注意，`//`不是必需的，以方便使用。
 
 Opening a URL
 -------------
 
-URLs can be opened, yielding _schemes_, which can be opened to resources, which can be read, written and (for some resources) seeked (there are more operations which are described later on).
+URLs 可以被打开，yielding _schemes_, 其可被资源打开，其可以被读，写和（对于某些资源）seeked（有这些后述的详细操作）。
 
-For compatibility reasons, we use a file API similar to the Rust standard library's for opening URLs:
+出于兼容性考虑，我们用类似于Rust 标准库文件API来打开 URLs：
 
 ```rust
 use std::fs::OpenOptions;
@@ -49,4 +49,4 @@ fn main() {
 
 > TODO: Maybe do something with the tcp stream. Ping-pong?
 
-> TODO: The terminology may be somewhat confusing for the reader.
+> TODO: 该术语可能是对读者有所混淆。

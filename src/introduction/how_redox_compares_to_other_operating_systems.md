@@ -1,14 +1,14 @@
-How Redox compares to other operating systems
+比较 Redox 与其他操作系统
 =============================================
 
-We share quite a lot with quite a lot of other operating systems.
+我们与不少其他操作系统共享了不少。
 
 Syscalls
 --------
 
-The syscall interface is very Unix-y. For example, we have `open`, `pipe`, `pipe2`, `lseek`, `read`, `write`, `brk`, `execv`, and so on. Currently, we support the 31 most common Linux syscalls.
+系统调用接口非常的 Unix-y。 例如，我们有 `open`, `pipe`, `pipe2`, `lseek`, `read`, `write`, `brk`, `execv`等等。目前，我们支持31最常见的Linux系统调用。
 
-Compared to Linux, our syscall interface is much more minimal. This is not because of the stage in development, but because of a minimalist design.
+相较于 Linux 上，我们的系统调用接口更加微乎其微。这并不是因为处于发展的阶段，但由于简约的设计。
 
 "Everything is a URL"
 ----------------------

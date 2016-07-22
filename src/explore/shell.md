@@ -1,8 +1,7 @@
 # Shell
-ion is the [shell](http://linuxcommand.org/lts0010.php) used in redox. 
+ion 是 Redox 的 [shell](http://linuxcommand.org/lts0010.php) 
 
-when the shell is call without "-c", it start a main loop
-which can be found inside `Shell.execute()`
+当shell是呼叫无 "-c" 参数，它开始主循环可以在里面找到 `Shell.execute()`
 
 ```Rust
         self.print_prompt();
@@ -15,15 +14,13 @@ which can be found inside `Shell.execute()`
             self.print_prompt();
         }
 ```
-`self.print_prompt();` is used to print the shell prompt.
+`self.print_prompt();` 用来打印 shell 提示符。
 
-the `readln()` is a the input reader which code can be found in `crates/ion/src/input_editor`
+在 `readln()` 是一个输入读者哪些代码可以在 `crates/ion/src/input_editor`
 
-The documentation about trim can be found [here](https://doc.rust-lang.org/std/primitive.str.html#method.trim).
-if the commands is not empty, the method `on_command` will be called. this method will be developed later.
-then the shell will update variables, and reprint the prompt.
-
-
+有关修剪文档都可以找到 [这里](https://doc.rust-lang.org/std/primitive.str.html#method.trim).
+如果该命令不为空，则该方法 `on_command` 将被调用。此方法将在以后开发的。
+那么shell将更新变量，然后重新打印提示。
 
 
 ```Rust
@@ -72,12 +69,13 @@ fn on_command(&mut self, command_string: &str, commands: &HashMap<&str, Command>
     }
 }
 ```
-the first thing the `on_command` does it to add the commands into the history with  `self.history.add(command_string.to_string(), &self.variables);`.
+第一件事 `on_command` 做它的命令添加到用  `self.history.add(command_string.to_string(), &self.variables);`.
 
-Then the script will be parse. the parser code is in `crates/ion/src/peg.rs`
-the parse will return a set of pipelines, each pipeline contains a set of jobs.
-Each job represents a single command with its arguments.
-you can take a look in `crates/ion/src/peg.rs`
+然后，该脚本就会被解析。解析器代码是在 `crates/ion/src/peg.rs`
+
+解析将返回一组管线，每条管线包括一组作业。
+每个作业代表了其参数的单个命令
+你可以在看 `crates/ion/src/peg.rs`
 ```Rust
 pub struct Pipeline {
     pub jobs: Vec<Job>,
@@ -90,25 +88,25 @@ pub struct Job {
     pub background: bool,
 }
 ```
-what will happen after is in brief :
-* if the current block is a collecting block (a for loop or a function declaration) and the current command is end, we close the block:
-   *  if the block is a for loop we run the loop
-   * if the block is a function declaration we push the function to the functions list
-* If the current block is a collecting block but the current command is not end, we add the current command to the block.
-* If the current block is not a collecting block, we simply execute the current command.
+什么后会发生在简要介绍：
+*如果当前块是一个收集块（一个for循环或函数声明）和当前命令结束时，我们关闭块：
+   *如果块是一个循环，我们跑环
+   *如果块是一个函数声明，我们推的功能函数列表
+*如果当前块是一个收集块，但电流指令没有结束，我们添加当前命令块。
+*如果当前块不是收集块，我们只是执行当前命令。
 
-the code blocks are defined in `crates/ion/src/flow_control.rs`
+代码块在 `crates/ion/src/flow_control.rs`
 ```Rust
 pub struct CodeBlock {
     pub pipelines: Vec<Pipeline>,
 }
 ```
-the function code is defined in `crates/ion/src/functions.rs`
+功能代码在' `crates/ion/src/functions.rs` 定义
 
-the execution of pipeline content will be executer in `run_pipeline()`
+管道内容的执行将在 `run_pipeline()`
 
-the Command class inside `crates/ion/src/main.rs` maps each command with an description and a method
-to be executed. for example :
+Command类里面 `crates/ion/src/main.rs` 每个命令映射与描述和方法
+被执行。 例如 ：
 ```Rust
 commands.insert("cd",
                 Command {

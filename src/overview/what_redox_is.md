@@ -1,10 +1,10 @@
 What Redox is
 =============
 
-Redox is a general purpose operating system and surrounding ecosystem written in pure Rust. Our aim is to provide a fully functioning Unix-like microkernel, that is both secure and free.
+Redox 是一个通用的操作系统和用 Rust 编写的周围生态系统。我们的目标是提供一个全功能的类 Unix 微内核，这是既安全又自由。
 
-We have modest compatibility with POSIX, allowing Redox to run many programs without porting.
+我们与 POSIX 适度兼容性，使 Redox 无需移植即可运行多个程序。
 
-We take inspiration from Plan9, Minix, Linux, and BSD. We are trying to generalize various concepts from other systems, to get one unified design. We will speak about this some more in the `Design` chapter.
+我们采取的灵感来自于 Plan9，Minix，Linux 和 BSD。我们正试图从其他系统概括各种概念，得到一个统一的设计。我们将这个一些在`Design`章说。
 
-Redox runs on real hardware today.
+今天 Redox 运行在真实的硬件上。

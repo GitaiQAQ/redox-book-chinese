@@ -1,31 +1,31 @@
-How do URLs work under the hood?
+工作原理
 ================================
 
-Representation
+表现
 --------------
 
-Since it is impossible to go from user space to ring 0 in a typed manner we have to use some weakly typed representation (that is, we can't use an enum, unless we want to do transmutations and friends). Therefore we use a string-like representation when moving to kernel space. This is basically just a raw pointer to a C-like, null-terminating string. To avoid further overhead, we use more efficient representations:
+由于不可能从用户空间去 Ring 0 的类型的方式，我们必须使用一些弱类型的表示（也就是我们不能使用枚举，除非我们想要做的蜕变和朋友）。因此，我们用 string-like 表示移动到内核空间的时候。这基本上是一个原始指针到一个 C-like，空字符串结束。为了避免进一步的开销，我们使用更有效的陈述：
 
 # `Url<'a>`
 
-The first of the three representations is the simplest one. It consists of a `struct` containing two fat pointers, representing the scheme and the reference respectively.
+三个代表的是最简单的一种。它由一个包含两个富指针，分别代表 scheme 和参考的`struct`。
 
 # `OwnedUrl`
 
-This is a `struct` containing two `String`s (that is, growable, heap-allocated UTF-8 string), being the scheme and the reference respectively.
+这是一种含有两个`String`s（即，可增长，堆分配UTF-8字符串），即 scheme 和基准分别`struct`。
 
 # `CowUrl<'a>`
 
-This is a Copy-on-Write (CoW) URL, which, when mutated, gets cloned to heap. This way, you get efficient conditional allocation of the URL.
+这是一个写入时复制（COW）的网址，其中，一旦发生变化，被克隆到堆。这样，你得到的 URL 的有效率的分配。
 
-Not much fanciness here.
+这里没有太多的花哨。
 
 Opening a URL
 -------------
 
-Opening URLs happens through the `OPEN` system call. `OPEN` takes a C-like, null-terminating string, and two pointer-sized integers, keeping the open flags and the file mode, respectively.
+打开URL通过 `OPEN` 系统调用发生。 `OPEN` 采用类似C语言的，空的结束串和两个指针大小的整数，保持开放的标志和文件模式，分别为。
 
-The path argument of `OPEN` do not have to be an URL. For compatibility reasons, it will default to the `file:` scheme. If otherwise specified, the scheme will be resolved by the registrar (see [The root scheme]), and then opened.
+`OPEN`的路径参数不必是 URL。出于兼容性考虑，它会默认为 `file:` scheme如果另有规定外，计划将通过注册商（见[The root scheme]）来解决，然后再打开。
 
 > TODO
 
