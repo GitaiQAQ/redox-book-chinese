@@ -1,4 +1,4 @@
-Redox 中文版
+Redox Book 中文版
 ==========
 
 > [redox-os/book](https://github.com/redox-os/book)
