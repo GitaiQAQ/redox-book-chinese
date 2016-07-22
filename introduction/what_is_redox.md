@@ -1,27 +1,27 @@
-What is Redox?
+什么是 Redox?
 ==============
 
-You might still have the question: What is Redox actually?
+你可能仍然有一个问题：什么是 Redox？
 
-Redox is an attempt to make a complete, fully-functioning, general-purpose operating system with a focus on safety, freedom, reliability, correctness, and pragmatism.
+Redox 是试图使一个完整的，全功能的，通用的操作系统，重点是安全，自由，可靠性，正确性和实用主义。
 
-The goals of Redox
+Redox 的目标
 ------------------
 
-We want to be able to use it, without obstructions, as a alternative to Linux on our computers. It should be able to run most Linux programs with only minimal modifications. (see [Why Free Software])
+我们希望能够使用它，没有障碍物，作为一种替代的Linux在我们的电脑。它应该能够运行只有很少的修改，大多数Linux程序。 （见[为什么自由软件]）
 
-We're aiming towards a complete, safe Rust ecosystem. This is a design choice, which hopefully improves correctness and security (see [Why Rust]).
+我们的目标制定完整的，安全的 Rust 生态系统。这是设计的选择，这有希望提高正确性和安全性（见[为什么 Rust ]）。
 
-We want to improve the security design when compared to other Unix-like kernels by using safe defaults and disallowing insecure configurations where possible.
+我们希望通过使用安全的默认设置和禁止不安全的配置，在可能的情况相比其他类Unix内核的时候，提高了安全性设计。
 
-The non-goals of Redox
+非目标
 ----------------------
 
-We are not a Linux clone, or POSIX-compliant, nor are we crazy scientists, who wish to redesign everything. Generally, we stick to well-tested and proven correct designs. If it ain't broken don't fix it.
+我们不是一个Linux克隆或POSIX兼容的，我们也不是疯狂的科学家，谁愿意重新设计的一切。一般情况下，我们坚持充分测试，并证明是正确的设计。如果它不破不解决它。
 
-This means that a large number of standard programs and libraries will be compatible with Redox. Some things that do not align with our design decisions will have to be ported.
+这意味着大量的标准程序和库的将与 Redox 兼容。不以我们的设计决定调整有些事情将要被移植。
 
-The key here is the trade off between correctness and compatibility. Ideally, you should be able achieve both, but unfortunately, you can't always do so.
+这里的关键是关闭的正确性和兼容性之间的贸易。理想情况下，你应该能够实现这两个，但不幸的是，你不能总是这样做。
 
-[Why Free Software]: ./introduction/why_free_software.html
-[Why Rust]: ./introduction/why_rust.html
+[为什么自由软件]: ./introduction/why_free_software.html
+[为什么 Rust]: ./introduction/why_rust.html

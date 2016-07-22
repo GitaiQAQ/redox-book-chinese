@@ -1,34 +1,34 @@
-Compiling Redox
+Redox 编译
 ===============
 
-Now we have prepared the build, so naturally we're going to build Redox.
+现在，我们已经准备好构建，所以很自然我们要打造 Redox 。
 
 
 ```sh
 $ make all
 ```
 
-Give it a while. Redox is big.
+给它一段时间。 
 
-Running Redox
+Redox 运行
 -------------
 
-To run Redox, do:
+要运行 Redox ，这样做：
 ```sh
 $ make qemu
 ```
 
-This should open up a Qemu window, booting to Redox.
+这应该打开一个窗口的Qemu，引导至 Redox 。
 
-If it does not work, try:
+如果它不能正常工作，请尝试：
 
 ```sh
 $ make qemu kvm=no # we disable KVM
 ```
 
-If this doesn't work either, you should go open an issue.
+如果这也不行，你应该去打开一个问题。
 
-Note
+注意
 ----
 
-If you encounter any bugs, errors, obstructions, or other annoying things, please report the issue to the Redox repository. Thanks!
+如果您遇到任何缺陷，错误，阻碍物，或其他烦人的事情，请报告问题的 Redox 存储库。 谢谢！

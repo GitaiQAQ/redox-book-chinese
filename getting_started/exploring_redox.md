@@ -1,42 +1,42 @@
-Exploring Redox
+探索
 ===============
 
-To launch Redox's graphical interface launch `orbital` from the commandline.
+从命令行启动 Redox 的图形界面 `orbital`
 
 ```sh
 $ orbital
 ```
 
-This should put you into the orbital GUI if you got into a terminal by running
-`make qemu` or `make virtualbox`.
+这应该把你带入轨道GUI如果你运行陷入了终端
+`make qemu` 或 `make virtualbox`.
 
 Sodium
 ------
 
-Sodium is Redox's Vi-like editor. In the menu-bar, pick the icon with `Na` on it. This should now open up an editor window.
+Sodium 是 Redox 的 Vi-like 编辑器。 在菜单栏，找出 `Na` 的图标。 这个现在应该打开一个编辑器窗口。
 
-A short list of the Sodium defaults:
+默认 Sodium 的简短列表：
 
-- `hjkl`: Navigation.
-- `ia`: Go to insert mode.
-- `;`: Go to command-line mode.
-- shift-space: Go to normal mode.
+- `hjkl`: 导航。
+- `ia`: 转到插入模式。
+- `;`: 进入命令行模式。
+- shift-space: 到正常模式。
 
-For a more extensive list, write `;help`.
+对于更广泛的名单，写`; help`。
 
-Setting a reminder/countdown
+设置一个提醒/倒计时
 ----------------------------
 
-To demonstrate the ANSI support, we will play around with fancy reminders.
+为了证明 ANSI 支持，我们会玩弄花哨提醒。
 
-Open up the terminal emulator. Now, write `rem -s 10 -b`. This will set a 10 sec. countdown with progress bar.
+打开终端仿真器。现在，写 `rem -s 10 -b` 。这会设置一个10秒。倒计时与进度条。
 
-Playing around with Rusthello
+玩弄 Rusthello
 -----------------------------
 
-Rusthello is an advanced Reversi AI, made by [Enrico]. It is highly concurrent, so this proves Redox's multithreading capabilities. It supports various AIs, such as brute forcing, minimax, local optimizations, and hybrid AIs.
+Rusthello 是一种先进的黑白棋AI， 由 [Enrico] 开发。它是高并发，所以这证明了 Redox 的多线程功能。它支持各种认可机构，如暴力破解，极大极小，局部优化和混合认可。
 
-Oh, let's try it out!
+哦，让我们尝试一下！
 
 ```sh
 # first we `cd` to the Rusthello directory
@@ -45,11 +45,11 @@ $ cd apps/rusthello
 $ ./main.bin
 ```
 
-Then you will get prompted for various things, such as difficulty, AI setup, and so on. When this is done, Rusthello interactively starts the battle between you and an AI or an AI and an AI.
+那么你会得到提示各种事情，如难度，AI 设置，等等。当做到这一点 ，Rusthello 交互开始你和 AI 或 AI 和 AI 之间的战斗。
 
-Exploring OrbTK
+探索 OrbTK
 ---------------
 
-Click the OrbTK demo app in the menu bar. Now, this will open up a graphical user interface, demonstrating the different widgets, OrbTK currently supports.
+单击菜单栏中的OrbTK演示程序。现在，这将开辟的图形用户界面，显示了OrbTK目前支持的不同的部件。
 
 [Enrico]: https://github.com/EGhiorzi

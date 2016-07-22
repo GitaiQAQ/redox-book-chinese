@@ -1,10 +1,10 @@
 Unsafes
 =======
 
-`unsafe` is a way to tell Rust that "I know what I'm doing!", which is often necessary when writing low-level code, providing safe abstractions. You cannot write a kernel without `unsafe`s.
+`unsafe`是一种方法来告诉 Rust 说，“我知道我在做什么！”，写底层代码的时候，提供安全的抽象这往往是必要的。没有`unsafe`s你不能写一个内核。
 
-In that light, a kernel cannot be 100% safe, however the unsafe parts have to be marked with an `unsafe`, which keeps the unsafe parts segregated from the safe code. We seek to eliminate the `unsafe`s where we can, and when we use `unsafe`s, we are extremely careful.
+有鉴于此，内核不能100％安全的，但是不安全的部件必须标有'unsafe`，这使不安全的地方从安全的代码分离。我们力求消除`unsafe`s的地方就可以了，当我们使用`unsafe`s，我们非常小心。
 
-A quick grep gives us some stats: The kernel has 16.52% unsafe code, a 50% improvement in the last three weeks. User space has roughly ~0.2%.
+一个快速的grep为我们提供了一些统计数据：内核拥有16.52％不安全的代码，在过去的三个星期提高了50％。用户空间具有大致〜0.2％。
 
-This contrasts with kernels written in C, which cannot make guarantees about safety without costly formal analysis.
+与此相反，用C语言编写内核，不能做出关于安全保证，无需昂贵的正式分析。
